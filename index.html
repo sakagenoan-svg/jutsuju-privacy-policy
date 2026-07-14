@@ -160,6 +160,7 @@
         <div class="meta" aria-label="概要">
           <span class="pill">アプリ名: 受術回線</span>
           <span class="pill">制定日: 2026年7月10日</span>
+          <span class="pill">更新日: 2026年7月14日</span>
           <span class="pill">公開版: クローズドテスト</span>
         </div>
       </header>
@@ -198,7 +199,6 @@
             <li>氏名</li>
             <li>メールアドレス</li>
             <li>連絡先</li>
-            <li>位置情報</li>
             <li>写真</li>
             <li>ファイル</li>
             <li>マイク音声</li>
@@ -207,6 +207,9 @@
           </ul>
           <p>
             また、本アプリは「傍受術式」という世界観上の名称を使用しますが、実際に通信内容を傍受、盗聴、解析する機能はありません。
+          </p>
+          <p class="note">
+            ※ ただし「Wi‑Fi領域観測」機能を使用する場合に限り、測定中のみ位置情報を利用します。詳細は下記「5. Wi‑Fi領域観測機能について」をご確認ください。
           </p>
         </section>
 
@@ -223,7 +226,45 @@
         </section>
 
         <section>
-          <h2>5. 外部送信について</h2>
+          <h2>5. Wi‑Fi領域観測機能について</h2>
+          <p>
+            0.3.3 以降で追加された「Wi‑Fi領域観測」機能を利用する場合に限り、以下の情報を扱います。この機能を使わない場合、これらの権限・情報は不要で、通常の診断機能は位置情報などの追加権限なしで利用できます。
+          </p>
+          <ul>
+            <li>位置情報の利用は、Wi‑Fi領域観測を使用した場合のみです。ホーム等の通常機能では位置情報を利用しません。</li>
+            <li>位置情報は、アプリの使用中（測定画面を表示している間）のみ取得します。</li>
+            <li>バックグラウンドでの位置情報取得は行いません。バックグラウンドへ移行すると測定は停止します。</li>
+            <li>測定では、周辺Wi‑Fiの信号強度（受信強度）を利用します。</li>
+            <li>通信内容やパケット内容、閲覧履歴は取得しません。</li>
+            <li>緯度・経度を永続保存しません。緯度・経度は測定中に開始地点からの相対座標へ変換するためだけにメモリ上で使用します。</li>
+            <li>Wi‑Fiの生のSSID / BSSIDを長期保存しません。一覧表示のための一時的な処理にのみ用い、端末内の測定結果には含めません。</li>
+            <li>測定結果として端末内に保存するのは、開始地点を原点とした相対座標（メートル）と受信強度（RSSI）等の、絶対的な位置を復元できない値のみです。</li>
+            <li>測定結果を独自サーバー・外部サーバーへ送信しません。すべて端末内で完結します。</li>
+            <li>保存した測定セッションは、ユーザーがいつでも結果画面から削除できます。</li>
+            <li>通常の診断機能は、位置情報などの追加権限がなくても利用できます。</li>
+          </ul>
+          <p class="note">
+            使用する権限: ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION（測定中の端末位置・前景のみ）、NEARBY_WIFI_DEVICES（Android 13以降・周辺Wi‑Fiスキャン・neverForLocation を宣言）、ACCESS_WIFI_STATE / CHANGE_WIFI_STATE（Wi‑Fiスキャン）。ACCESS_BACKGROUND_LOCATION は要求しません。
+          </p>
+          <p style="color:var(--accent2);margin-top:16px;font-weight:600;">English (Wi‑Fi Field Survey)</p>
+          <p class="note">The following applies only when you use the Wi‑Fi Field Survey feature. Normal diagnosis features work without any additional permissions such as location.</p>
+          <ul class="small">
+            <li>Location is used only when you use Wi‑Fi Field Survey; normal features do not use location.</li>
+            <li>Location is collected only while the app is in use (while the measurement screen is shown).</li>
+            <li>No background location is collected; measurement stops when the app goes to the background.</li>
+            <li>The measurement uses the signal strength of nearby Wi‑Fi.</li>
+            <li>We do not access communication content, packet content, or browsing history.</li>
+            <li>We do not permanently store latitude/longitude; they are used only in memory to compute relative coordinates from the starting point.</li>
+            <li>We do not store raw Wi‑Fi SSID/BSSID long‑term.</li>
+            <li>We store only values that cannot reconstruct an absolute position: relative coordinates (meters) and RSSI, etc.</li>
+            <li>We do not send results to our own or any external server; everything stays on the device.</li>
+            <li>Saved sessions can be deleted by the user at any time from the result screen.</li>
+            <li>Normal diagnosis features work without location or other extra permissions.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>6. 外部送信について</h2>
           <p>
             現在のクローズドテスト版では、本アプリ独自のサーバーへユーザーデータを送信しません。
           </p>
@@ -231,7 +272,7 @@
         </section>
 
         <section>
-          <h2>6. 第三者サービスについて</h2>
+          <h2>7. 第三者サービスについて</h2>
           <p>
             今後、本アプリでは広告表示やアプリ内課金などの機能を追加する可能性があります。
           </p>
@@ -247,7 +288,7 @@
         </section>
 
         <section>
-          <h2>7. 広告・課金について</h2>
+          <h2>8. 広告・課金について</h2>
           <p>
             現在のクローズドテスト版では、広告表示やアプリ内課金の機能は準備中です。
           </p>
@@ -257,7 +298,7 @@
         </section>
 
         <section>
-          <h2>8. 免責事項</h2>
+          <h2>9. 免責事項</h2>
           <p>
             本アプリの診断結果は、端末上での簡易的な表示および演出を目的としたものです。通信品質、契約回線速度、ネットワーク状態を保証するものではありません。
           </p>
@@ -267,7 +308,7 @@
         </section>
 
         <section>
-          <h2>9. プライバシーポリシーの変更</h2>
+          <h2>10. プライバシーポリシーの変更</h2>
           <p>
             本プライバシーポリシーは、アプリの機能追加、仕様変更、法令や各種ポリシーの変更に応じて、予告なく変更される場合があります。
           </p>
@@ -275,7 +316,7 @@
         </section>
 
         <section>
-          <h2>10. お問い合わせ</h2>
+          <h2>11. お問い合わせ</h2>
           <p>本アプリに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
           <p class="contact">
             <span>メールアドレス:</span>
@@ -284,7 +325,7 @@
         </section>
 
         <section>
-          <h2>11. 制定日</h2>
+          <h2>12. 制定日</h2>
           <p>制定日：2026年7月10日</p>
         </section>
       </main>
