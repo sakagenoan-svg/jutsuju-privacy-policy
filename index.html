@@ -6,7 +6,7 @@
     <title>プライバシーポリシー | 受術回線</title>
     <meta
       name="description"
-      content="受術回線のプライバシーポリシー。通信内容は取得せず、クローズドテスト版では一部の診断値に仮データを使用しています。"
+      content="受術回線のプライバシーポリシー。通信内容は取得しません。測定は端末内で完結し、広告配信のためにのみ Google Mobile Ads SDK がデータを処理します。"
     />
     <style>
       :root {
@@ -160,8 +160,8 @@
         <div class="meta" aria-label="概要">
           <span class="pill">アプリ名: 受術回線</span>
           <span class="pill">制定日: 2026年7月10日</span>
-          <span class="pill">更新日: 2026年7月14日</span>
-          <span class="pill">公開版: クローズドテスト</span>
+          <span class="pill">更新日: 2026年8月31日</span>
+          <span class="pill">公開版: オープンテスト</span>
         </div>
       </header>
 
@@ -172,7 +172,8 @@
             受術回線（以下「本アプリ」）は、スマートフォンの通信状態を「接続術式」「帯域出力」「遅延ノイズ」「受信領域」などの表現で表示する、ネットワーク診断エンタメアプリです。
           </p>
           <p>
-            現在のクローズドテスト版では、一部の診断値に表示確認用の仮データを使用しています。
+            画面に表示する診断値は、いずれも端末上での実測にもとづきます。
+            未測定の項目は表示しません（表示確認用の仮の数値は使用していません）。
           </p>
         </section>
 
@@ -239,7 +240,7 @@
             <li>緯度・経度を永続保存しません。緯度・経度は測定中に開始地点からの相対座標へ変換するためだけにメモリ上で使用します。</li>
             <li>Wi‑Fiの生のSSID / BSSIDを長期保存しません。一覧表示のための一時的な処理にのみ用い、端末内の測定結果には含めません。</li>
             <li>測定結果として端末内に保存するのは、開始地点を原点とした相対座標（メートル）と受信強度（RSSI）等の、絶対的な位置を復元できない値のみです。</li>
-            <li>測定結果を独自サーバー・外部サーバーへ送信しません。すべて端末内で完結します。</li>
+            <li>測定結果を独自サーバー・外部サーバーへ送信しません。<strong>Wi‑Fi領域観測の測定は端末内で完結します</strong>（広告配信のためのデータ処理については第8章をご覧ください）。</li>
             <li>保存した測定セッションは、ユーザーがいつでも結果画面から削除できます。</li>
             <li>通常の診断機能は、位置情報などの追加権限がなくても利用できます。</li>
           </ul>
@@ -257,7 +258,7 @@
             <li>We do not permanently store latitude/longitude; they are used only in memory to compute relative coordinates from the starting point.</li>
             <li>We do not store raw Wi‑Fi SSID/BSSID long‑term.</li>
             <li>We store only values that cannot reconstruct an absolute position: relative coordinates (meters) and RSSI, etc.</li>
-            <li>We do not send results to our own or any external server; everything stays on the device.</li>
+            <li>We do not send measurement results to our own or any external server; <strong>Wi‑Fi Field Survey stays entirely on the device</strong> (see section 8 for data processed for advertising).</li>
             <li>Saved sessions can be deleted by the user at any time from the result screen.</li>
             <li>Normal diagnosis features work without location or other extra permissions.</li>
           </ul>
@@ -266,35 +267,73 @@
         <section>
           <h2>6. 外部送信について</h2>
           <p>
-            現在のクローズドテスト版では、本アプリ独自のサーバーへユーザーデータを送信しません。
+            本アプリは、<strong>独自のサーバーを持たず、ユーザーデータを当方のサーバーへ送信しません</strong>。
+            診断結果・診断履歴・Wi‑Fi領域観測の測定結果は端末内で処理・保存されます。
           </p>
-          <p>診断表示に必要な情報は、端末内で処理されます。</p>
+          <p>
+            ただし、<strong>広告配信のために Google Mobile Ads SDK（AdMob）が Google へデータを送信します</strong>。
+            この一点のみ端末内で完結しません。詳細は第8章をご覧ください。
+          </p>
+          <p class="note">
+            The app has no server of its own and sends no user data to us. Diagnosis results, history and
+            Wi‑Fi Field Survey measurements are processed and stored on your device. The one exception is
+            advertising: the Google Mobile Ads SDK (AdMob) sends data to Google. See section 8.
+          </p>
         </section>
 
         <section>
           <h2>7. 第三者サービスについて</h2>
-          <p>
-            今後、本アプリでは広告表示やアプリ内課金などの機能を追加する可能性があります。
-          </p>
-          <p>その場合、以下の第三者サービスを利用する可能性があります。</p>
+          <p>本アプリは、以下の第三者サービスを利用しています。</p>
           <ul>
-            <li>Google AdMob</li>
-            <li>Google Play Billing</li>
-            <li>Google Play Services</li>
+            <li><strong>Google Mobile Ads SDK（AdMob）</strong> — バナー広告の配信に利用しています（利用中）。</li>
+            <li><strong>Google User Messaging Platform（UMP）</strong> — 広告配信に関する同意の取得・管理に利用しています（利用中）。</li>
+            <li>Google Play Services — アプリの動作基盤として利用しています。</li>
+            <li>Google Play Billing — <strong>現時点では利用していません</strong>（アプリ内課金は提供していません）。</li>
           </ul>
           <p class="note">
-            これらのサービスでは、各サービス提供者のプライバシーポリシーおよび利用規約に基づいて情報が処理される場合があります。
+            これらのサービスでは、各サービス提供者のプライバシーポリシーおよび利用規約に基づいて情報が処理されます。
+            Google のプライバシーポリシー:
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a> ／
+            Google のサービスを使用するサイトやアプリからの情報の利用:
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">https://policies.google.com/technologies/partner-sites</a>
           </p>
         </section>
 
         <section>
-          <h2>8. 広告・課金について</h2>
+          <h2>8. 広告について</h2>
           <p>
-            現在のクローズドテスト版では、広告表示やアプリ内課金の機能は準備中です。
+            本アプリは無料で提供するため、一部の画面（ホーム・診断結果）にバナー広告を表示します。
+            広告配信には Google の <strong>Google Mobile Ads SDK（AdMob）</strong> を使用します。
           </p>
-          <p>
-            将来的に広告表示や広告解除課金を追加する場合があります。その際は、本プライバシーポリシーおよび Google Play Console 上の申告内容を必要に応じて更新します。
-          </p>
+          <ul>
+            <li>広告配信のため、Google Mobile Ads SDK は <strong>IP アドレス・端末や広告の識別子（広告 ID 等）・アプリの利用状況（広告の表示や操作）・診断情報</strong> を収集し、Google と共有します。これらは広告配信、広告の効果測定・分析、不正防止とセキュリティのために利用されます。</li>
+            <li><strong>IP アドレスから、市区町村程度のおおよその位置が推定される場合があります。</strong> これは広告配信のために Google 側で行われる処理であり、本アプリが端末の位置情報（GPS 等）を広告のために取得・送信しているわけではありません。</li>
+            <li>広告 ID は端末の設定からいつでもリセット・削除できます（Android の「設定 &gt; プライバシー &gt; 広告」）。</li>
+            <li><strong>Wi‑Fi領域観測の測定結果（相対座標・受信強度）や診断履歴を広告配信に利用しません。</strong> これらは端末内にのみ保存され、広告 SDK へ渡していません。</li>
+            <li><strong>SSID / BSSID・緯度経度・通信内容を広告のために送信することはありません。</strong></li>
+          </ul>
+
+          <p style="color:var(--accent2);margin-top:16px;font-weight:600;">広告に関する同意（UMP）</p>
+          <ul>
+            <li>EU/EEA・英国・スイスなど、同意の取得が必要な地域では、Google の <strong>User Messaging Platform（UMP）</strong> を用いて広告配信に関する同意を取得します。</li>
+            <li><strong>同意が得られるまで広告のリクエストは行いません。</strong> 同意が得られない場合、広告は表示されず、アプリの機能は通常どおり利用できます。</li>
+            <li>同意の内容は、アプリ内の <strong>設定 &gt; 広告プライバシー設定</strong> からいつでも変更できます（この項目は、再設定が提供されている地域でのみ表示されます）。</li>
+            <li>通信できない環境などで同意の取得に失敗した場合も、広告を表示しないだけで、診断・Wi‑Fi領域観測の機能はそのまま利用できます。</li>
+          </ul>
+
+          <p style="color:var(--accent2);margin-top:16px;font-weight:600;">課金について</p>
+          <p>現時点でアプリ内課金（広告の非表示化を含む）は提供していません。</p>
+
+          <p style="color:var(--accent2);margin-top:16px;font-weight:600;">English (Advertising)</p>
+          <ul class="small">
+            <li>This app is free and shows banner ads on some screens (Home and the diagnosis result), delivered with Google Mobile Ads SDK (AdMob).</li>
+            <li>The SDK collects and shares with Google your IP address, device and advertising identifiers, app interactions, and diagnostic information, for advertising, analytics and ad measurement, and fraud prevention and security.</li>
+            <li>Your IP address may be used to estimate an approximate location such as your city. This estimation is performed by Google for ad delivery; the app does not collect or transmit device location (GPS) for advertising.</li>
+            <li>You can reset or delete your advertising ID at any time in your device settings.</li>
+            <li>Wi‑Fi Field Survey results and diagnosis history are never used for advertising and are never passed to the ads SDK. SSID / BSSID, latitude and longitude, and communication content are never sent for advertising.</li>
+            <li>Where consent is required (EU/EEA, UK, Switzerland and others) we use Google&rsquo;s User Messaging Platform (UMP). No ad request is made before consent is obtained; if consent is not given, no ads are shown and the app remains fully usable. You can change your choices from Settings &gt; Ad privacy settings.</li>
+            <li>There are no in-app purchases, including any option to remove ads.</li>
+          </ul>
         </section>
 
         <section>
@@ -303,7 +342,7 @@
             本アプリの診断結果は、端末上での簡易的な表示および演出を目的としたものです。通信品質、契約回線速度、ネットワーク状態を保証するものではありません。
           </p>
           <p class="note">
-            「一部の診断値」は表示確認用の仮データを含む場合があります。
+            診断値は端末上での簡易的な実測にもとづくもので、未測定の項目は表示しません。
           </p>
         </section>
 
@@ -327,12 +366,13 @@
         <section>
           <h2>12. 制定日</h2>
           <p>制定日：2026年7月10日</p>
+          <p>最終更新日：2026年8月31日（AdMob バナー広告および UMP 同意管理の導入に伴う更新）</p>
         </section>
       </main>
 
       <footer>
         <p class="small">
-          本ページは、受術回線のクローズドテスト提出用に作成されたプライバシーポリシーです。
+          本ページは、受術回線（Jutsu Signal）のプライバシーポリシーです。
         </p>
       </footer>
     </div>
